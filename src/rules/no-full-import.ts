@@ -73,7 +73,6 @@ export = {
 		return {
 			ImportDeclaration: function handleImports(node): void {
 				const quoteType = node.source.raw.startsWith("'") ? "'" : '"';
-				console.log(node.source.raw);
 				const parentNode = node.parent.body.find(
 					b =>
 						b.type === 'ImportDeclaration' &&
