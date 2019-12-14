@@ -56,6 +56,18 @@ export default {
 
 	create(context): any {
 		const options = context.options[0] || {};
+		if (options.packages) {
+			if (typeof options.packages !== 'object') {
+				throw new TypeError(
+					"The 'packages' option must be an object of libraries that should be linted, where the keys are the names of the libraries and the values are the location where the separate exports are located. Refer to README to learn more."
+				);
+			}
+			if (!Object.values(options.packages).every(v => typeof v === 'string')) {
+				throw new TypeError(
+					"The 'packages' option must be an object of libraries that should be linted, where the keys are the names of the libraries and the values are the location where the separate exports are located. Refer to README to learn more."
+				);
+			}
+		}
 		const packages = options.packages || {
 			lodash: '/',
 			'date-fns': '/',
