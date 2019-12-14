@@ -48,7 +48,7 @@ function reportIfMissing(packages, context, node, name, tokens): void {
 	}
 }
 
-export default {
+export = {
 	meta: {
 		type: 'suggestion',
 		fixable: 'code'
