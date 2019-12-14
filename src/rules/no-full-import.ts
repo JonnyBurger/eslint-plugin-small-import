@@ -1,4 +1,4 @@
-function reportIfMissing(
+function reportIfMatching(
 	packages,
 	context,
 	node,
@@ -34,7 +34,7 @@ function reportIfMissing(
 				fix: fixer => {
 					const replacement = filtered
 						.map(f => {
-							return `import ${f} from ${quoteType}${name}/${f}${quoteType}`;
+							return `import ${f} from ${quoteType}${name}/${f}${quoteType};`;
 						})
 						.join('\n');
 					return fixer.replaceText(node, replacement);
@@ -78,7 +78,7 @@ export = {
 						b.type === 'ImportDeclaration' &&
 						Object.keys(packages).includes(b.source.value)
 				);
-				reportIfMissing(
+				reportIfMatching(
 					packages,
 					context,
 					node,

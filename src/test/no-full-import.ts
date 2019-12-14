@@ -24,7 +24,7 @@ ruleTester.run('small-import/forbid-native-components', rule, {
 						'Import only this function instead of the whole lodash package'
 				}
 			],
-			output: 'import max from "lodash/max"'
+			output: 'import max from "lodash/max";'
 		},
 		{
 			code: 'import {max} from "underscore"',
@@ -36,7 +36,7 @@ ruleTester.run('small-import/forbid-native-components', rule, {
 						'Import only this function instead of the whole underscore package'
 				}
 			],
-			output: 'import max from "underscore/max"'
+			output: 'import max from "underscore/max";'
 		},
 		{
 			code: 'import {startOfDay} from "date-fns"',
@@ -47,7 +47,7 @@ ruleTester.run('small-import/forbid-native-components', rule, {
 						'Import only this function instead of the whole date-fns package'
 				}
 			],
-			output: 'import startOfDay from "date-fns/startOfDay"'
+			output: 'import startOfDay from "date-fns/startOfDay";'
 		},
 		{
 			code: 'import {sortBy, groupBy, max} from "lodash"',
@@ -59,7 +59,7 @@ ruleTester.run('small-import/forbid-native-components', rule, {
 				}
 			],
 			output:
-				'import sortBy from "lodash/sortBy"\nimport groupBy from "lodash/groupBy"\nimport max from "lodash/max"'
+				'import sortBy from "lodash/sortBy";\nimport groupBy from "lodash/groupBy";\nimport max from "lodash/max";'
 		}
 	],
 	valid: [
