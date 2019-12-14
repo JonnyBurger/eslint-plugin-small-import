@@ -1,15 +1,11 @@
-const isStaticRequire = (node): boolean => {
-	return (
-		node?.callee &&
-		node.callee.type === 'Identifier' &&
-		node.callee.name === 'require' &&
-		node.arguments.length === 1 &&
-		node.arguments[0].type === 'Literal' &&
-		typeof node.arguments[0].value === 'string'
-	);
-};
-
-function reportIfMissing(packages, context, node, name, tokens): void {
+function reportIfMissing(
+	packages,
+	context,
+	node,
+	name,
+	tokens,
+	quoteType: '"' | "'"
+): void {
 	if (Object.keys(packages).includes(name)) {
 		const filtered = tokens
 			.filter(t => {
@@ -88,17 +84,6 @@ export = {
 					node.source.value,
 					parentNode ? parentNode.specifiers : node.parent.tokens
 				);
-			},
-			CallExpression: function handleRequires(node): void {
-				if (isStaticRequire(node) && node.parent.id) {
-					reportIfMissing(
-						packages,
-						context,
-						node,
-						node.arguments[0].value,
-						node.parent.id.properties
-					);
-				}
 			}
 		};
 	}
