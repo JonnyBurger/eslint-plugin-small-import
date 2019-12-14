@@ -34,7 +34,7 @@ function reportIfMissing(
 				fix: fixer => {
 					const replacement = filtered
 						.map(f => {
-							return `import ${f} from "${name}/${f}"`;
+							return `import ${f} from ${quoteType}${name}/${f}${quoteType}`;
 						})
 						.join('\n');
 					return fixer.replaceText(node, replacement);
@@ -72,6 +72,8 @@ export = {
 
 		return {
 			ImportDeclaration: function handleImports(node): void {
+				const quoteType = node.source.raw.startsWith("'") ? "'" : '"';
+				console.log(node.source.raw);
 				const parentNode = node.parent.body.find(
 					b =>
 						b.type === 'ImportDeclaration' &&
@@ -82,7 +84,8 @@ export = {
 					context,
 					node,
 					node.source.value,
-					parentNode ? parentNode.specifiers : node.parent.tokens
+					parentNode ? parentNode.specifiers : node.parent.tokens,
+					quoteType
 				);
 			}
 		};
