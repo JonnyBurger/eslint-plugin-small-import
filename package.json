@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-small-import",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "ESLint rule for forbidding use of React Native components when a version of react-native-normalized is available",
   "main": "dist/index.js",
   "directories": {
