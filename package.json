@@ -1,7 +1,7 @@
 {
   "name": "eslint-plugin-small-import",
-  "version": "0.1.4",
-  "description": "ESLint rule for forbidding use of React Native components when a version of react-native-normalized is available",
+  "version": "1.0.0",
+  "description": "ESLint rule for preventing the full import of big libraries when just a part of it can be imported.",
   "main": "dist/index.js",
   "directories": {
     "test": "test"
@@ -17,8 +17,10 @@
   "keywords": [
     "eslint",
     "plugin",
-    "react-native",
-    "normalized"
+    "lodash",
+    "import",
+    "small",
+    "bundle-size"
   ],
   "author": "Jonny Burger <jonny.io>",
   "license": "ISC",
