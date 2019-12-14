@@ -1,0 +1,40 @@
+{
+  "name": "eslint-plugin-small-import",
+  "version": "1.1.0",
+  "description": "ESLint rule for forbidding use of React Native components when a version of react-native-normalized is available",
+  "main": "dist/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "tsc && ava dist/test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JonnyBurger/eslint-plugin-react-native-normalized.git"
+  },
+  "keywords": [
+    "eslint",
+    "plugin",
+    "react-native",
+    "normalized"
+  ],
+  "author": "Jonny Burger <jonny.io>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JonnyBurger/eslint-plugin-react-native-normalized/issues"
+  },
+  "homepage": "https://github.com/JonnyBurger/eslint-plugin-react-native-normalized#readme",
+  "peerDependencies": {
+    "eslint": "^6.1.0"
+  },
+  "devDependencies": {
+    "ava": "^2.2.0",
+    "eslint-ava-rule-tester": "^4.0.0"
+  },
+  "dependencies": {
+    "@jonny/eslint-config": "^2.1.37",
+    "eslint": "^6.7.2",
+    "typescript": "^3.7.3"
+  }
+}
